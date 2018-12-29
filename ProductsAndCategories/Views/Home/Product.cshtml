@@ -1,0 +1,44 @@
+@model ProductsAndCategories.Models.Product
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+    <title>Product Page</title>
+
+<style>
+.name{
+    background-color: lightseagreen;
+    border: solid darkgreen 1px;
+    max-width: 400px;
+    margin:auto;
+    padding:10px;
+    margin-top:20px;
+}
+</style>
+
+<body>
+    <h2 class="name">@ViewBag.Product.ProductName</h2>
+    <br>
+    <div id="container">
+        <div class="row">
+    <div class="col">
+      <h2>Categories</h2>
+      <br><br><br>
+        LOOP THROUGH ASSOCIATIONS IN THE PRODUCT? 
+    </div>
+
+    <div class="col">
+      <h2>Add Category</h2>
+      <br><br><br>
+        <partial name="_CategoriesPartial" />
+    </div>
+  </div>
+    </div>
+</body>
+</html>

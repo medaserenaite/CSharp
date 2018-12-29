@@ -1,0 +1,65 @@
+@model CRUDelicious2.Models.Dish
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-compatible' content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>CRUDelicious</title>
+</head>
+<style>
+.col-sm{
+    background-color: green;
+    border: solid 1px darkgray;
+    border-radius: 15px;
+    padding:15px;
+    color: wheat;
+    margin: 10px;
+    height: 300px;
+}
+</style>
+
+<body>
+    <div id="container">
+        <h5>Add a New Dish!</h5>
+        <a href="/">Home</a>
+        <form asp-action="Create" asp-controller="Home" method="POST">
+        <div class="row">
+            <div class="col-sm">
+                <label asp-for="Name">Name</label>
+                <span asp-validation-for="Name"></span>
+                <input asp-for="Name" type="text"><br><br>
+
+                <label asp-for="Chef">Chef</label>
+                <span asp-validation-for="Chef"></span>
+                <input asp-for="Chef" type="text"><br><br>
+
+                <label asp-for="Tastiness">Tastiness</label>
+                <span asp-validation-for="Tastiness"></span>
+                <input asp-for="Tastiness" type="text"><br><br>
+
+                <label asp-for="Calories"></label>
+                <span asp-validation-for="Calories"></span>
+                <input asp-for="Calories" type="text">
+            </div>
+            <div class="col-sm">
+
+            </div>
+            <div class="col-sm">
+                <label asp-for="Description"></label><br>
+                <span asp-validation-for="Description"></span>
+                <textarea asp-for="Description" name="Description">Description</textarea><br>
+                <input type="submit" value="submit">
+            </div>
+        </form>
+        </div>
+    </div>
+</body>
+
+</html>

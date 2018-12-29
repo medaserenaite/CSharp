@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv='X-UA-compatible' content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+        crossorigin="anonymous">
+    <title>Dojodachi</title>
+</head>
+<style>
+
+#top{
+    margin:20px;
+    padding:10px;
+    max-width: 500px;
+    margin-right: auto;
+    margin-left: auto;
+}
+#container{
+    background-color: rgb(255, 251, 247);
+}
+#action{
+    background-color: rgb(212, 212, 212);
+    max-width: 500px;
+    margin:auto;
+    padding:50px;
+    border: 1px solid darkgrey;
+    border-radius: 15px;
+}
+#actions{
+    padding:15px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 320px;
+    margin:auto;
+}
+.btn-danger{
+    margin:10px;
+}
+</style>
+
+<body>
+    <div id="container">
+        <div id="top" class="row">
+            <div class="col">Fullness:@ViewBag.Dachidata.Fullness</div>
+            <div class="col">Happiness:@ViewBag.Dachidata.Happiness</div>
+            <div class="col">Meals:@ViewBag.Dachidata.Meals</div>
+            <div class="col">Energy:@ViewBag.Dachidata.Energy</div>
+        </div>
+
+        <div id="action">
+            <p>@ViewBag.Dachidata.Message</p>
+
+        </div>
+
+        <div id="actions">
+            <a href="/Feed"><button type="button" class="btn btn-success">Feed</button></a>
+            <a href="/Play"><button type="button" class="btn btn-warning">Play</button></a>
+            <a href="/Work"><button type="button" class="btn btn-primary">Work</button></a>
+            <a href="/Sleep"><button type="button" class="btn btn-dark">Sleep</button></a>
+        </div>
+        <div>
+            <a href="/Reset"><button type="button" class="btn btn-danger">Reset</button></a>
+        </div>
+        
+
+    </div>
+</body>
+
+</html>

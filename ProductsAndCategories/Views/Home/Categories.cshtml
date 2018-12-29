@@ -1,0 +1,41 @@
+@model ProductsAndCategories.Models.Category
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+    <title>Products And Categories</title>
+<body>
+    <div id="container">
+        <div class="row">
+    <div class="col">
+      <h2><a href="/">Products</a></h2>
+      <br><br><br>
+      <form asp-action="NewCategory" asp-controller="Home" method="POST">
+          <span asp-validation-for="CategoryName"></span>
+          <label asp-for="CategoryName">Category Name</label><br>
+          <input asp-for="CategoryName"><br>
+
+          <input type="submit" value="submit">
+</form>
+    </div>
+    <div class="col">
+      <h2><a href="categories">Categories</a></h2>
+      <br><br><br>
+        @foreach (var Category in ViewBag.Categories)
+        {
+            <p>@Category.CategoryName</p>
+        }
+    </div>
+  </div>
+    </div>
+</body>
+</html>

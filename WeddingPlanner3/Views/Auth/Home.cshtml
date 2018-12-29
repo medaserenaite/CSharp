@@ -1,0 +1,62 @@
+@model WeddingPlanner3.Models.Wedding
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<partial name="_HomePartial" />
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Wedding</th>
+      <th scope="col">Guest Count</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    
+      @foreach (var Wedding in ViewBag.Weddings)
+      {
+        <tr>
+      <th scope="col"> @Wedding.WedderOne</th>
+      <th scope="col">@Wedding.WedderTwo</th>
+      <th scope="col">@Wedding.Date</th>
+
+      <th scope="col">planned by: @Wedding.Planner.FirstName</th>
+      <th>
+        @{
+                    var attending = false;
+                    foreach(var guest in @Wedding.Guests)
+                    {
+                        if(guest.UserID == @ViewBag.User.UserID)
+                        {
+                            attending = true;
+                        }
+                    }
+                    @if(@ViewBag.User.UserID == @Wedding.UserID)
+                    {
+                        <a href="rsvp/@Wedding.WeddingID">Delete</a>
+                    }
+                    else if(attending)
+                    {
+                        <a href="unrsvp/@Wedding.WeddingID">Un-RVSP</a>
+                    } else {
+                        <a href="rsvp/@Wedding.WeddingID">RVSP</a>
+                    }
+        }
+      </th>
+      </tr>
+      }
+      
+    
+  </tbody>
+
+
+
+</table>
+
+       
+                 
+                  
+                
+<a href="NewWedding">Add a new wedding</a>

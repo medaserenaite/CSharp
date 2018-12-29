@@ -1,0 +1,25 @@
+@model WeddingPlanner3.ViewModels.AddWeddingViewModel
+@{
+    ViewData["Title"] = "New Wedding";
+}
+
+<h1>Please create a wedding</h1>
+
+<form asp-action="AddWedding" asp-controller="Auth" method="POST">
+    <span asp-validation-for="WedderOne"></span>
+    <label asp-for="WedderOne">Wedder One</label><br>
+    <input asp-for="WedderOne" type="text"><br>
+
+    <span asp-validation-for="WedderTwo"></span>
+    <label asp-for="WedderTwo">WedderTwo</label><br>
+    <input asp-for="WedderTwo" type="text"><br>
+
+    <span asp-validation-for="Date"></span>
+    <label asp-for="Date">Date</label><br>
+    <input asp-for="Date" type="datetime-local"><br>
+
+    <input type="submit" value="submit">
+</form>
+
+
+<a href="Home">Home Page</a>

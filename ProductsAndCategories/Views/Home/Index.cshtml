@@ -1,0 +1,51 @@
+@model ProductsAndCategories.Models.Product
+@{
+    ViewData["Title"] = "Home Page";
+}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+  </head>
+    <title>Products And Categories</title>
+<body>
+    <div id="container">
+        <div class="row">
+    <div class="col">
+      <h2><a href="">Products</a></h2>
+      <br><br><br>
+      <h3>Add New Product</h3>
+      <form asp-action="NewProduct" asp-controller="Home" method="POST">
+          <span asp-validation-for="ProductName"></span>
+          <label asp-for="ProductName">Product Name</label><br>
+          <input asp-for="ProductName"><br>
+
+          <span asp-validation-for="Description"></span>
+          <label asp-for="Description">Description</label><br>
+          <input asp-for="Description"><br>
+
+          <span asp-validation-for="Price"></span>
+          <label asp-for="Price">Price</label><br>
+          <input asp-for="Price"><br>
+
+          <input type="submit" value="submit">
+</form>
+    </div>
+    <div class="col">
+      <h2><a href="categories">Categories</a></h2>
+      <br><br><br>
+      <h3>Existing Products</h3>
+        @foreach (var Product in ViewBag.Products)
+        {
+            <a href="/products/@Product.ProductID"><p>@Product.ProductName</p></a>
+        }
+    </div>
+  </div>
+    </div>
+</body>
+</html>
